@@ -1,3 +1,4 @@
+const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
 
@@ -7,6 +8,7 @@ router.get('/', (req, res)=>{
     res.render('login');
 });
 
+/*  Monstrar Valores en las tablas*/
 router.get('/proyectos', (req, res)=>{
     conexion.query('SELECT * FROM gestionproyecto',(error,results)=>{
         if(error){
@@ -16,6 +18,7 @@ router.get('/proyectos', (req, res)=>{
         }
     })
 })
+
 router.get('/proveedores', (req, res)=>{
     conexion.query('SELECT * FROM proveedores',(error,results)=>{
         if(error){
@@ -55,6 +58,11 @@ router.get('/almacen', (req, res)=>{
 router.get('/inicio', (req, res)=>{
     res.render('inicio');
 })
+
+/* INSERTAR VALORES EN LAS TABLAS */ 
+
+const crud = require('../controllers/crud');
+router.post('/save',crud.save)
 
 
 module.exports=router;

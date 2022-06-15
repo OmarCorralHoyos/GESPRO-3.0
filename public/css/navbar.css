@@ -75,3 +75,18 @@
     text-shadow: 2px 5px 6px black;
     
 }
+
+/*  lOGO DE INTERFAZ EN LA VENTANA DE INICIO*/
+
+#logoInterfaz{
+    width: 30%;
+    height: 30%;
+    margin-left: 35%;
+    margin-top: 13%;
+    position: absolute;
+    opacity: 0.2;
+    transition: all 0.3s ease;
+}
+#logoInterfaz:hover{
+    transform: scale(0.9);
+}

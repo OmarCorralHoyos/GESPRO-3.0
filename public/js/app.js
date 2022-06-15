@@ -3,12 +3,10 @@
 function validar(){
     let usuario = document.getElementById("userValidar").value;
     let Contraseña = document.getElementById("passValidar").value;	
-    let contenedor = document.getElementById("contenedor");
 
     if(usuario == "HCBSAS" && Contraseña == "GESPRO")
     {
-        document.getElementById("contenedor").style.display="block"
-        document.getElementById("contLogin").style.display="none"
+        window.location.href='http://localhost:5001/inicio'
         
     }
     else

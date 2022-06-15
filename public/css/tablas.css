@@ -32,11 +32,11 @@ body{
 #titulo{
     border: solid 2px white;
     width: 20%;
-    margin: 1% auto;
+    margin: 0 auto;
     box-shadow: 0px 10px 10px -6px black;
 }
 #titulo h1{
-    
+    padding: 1%;
     text-align: center;
     text-shadow: 2px 5px 6px black;
     

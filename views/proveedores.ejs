@@ -1,35 +1,72 @@
 <%-include('template/cabecera',{tituloweb: 'PROVEEDORES'}) %>
-  
-<div id="contenedor">
-    <%- include('template/navbar') %>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>NOMBRE</th>
-                <th>TELEFONO</th>
-                <th>DIRECCION</th>
-                <th>CORREO</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <% results.forEach((proveedores) => { %>
-                <tr>
-                 <td><%- proveedores.idProveedores%></td>
-                 <td><%-proveedores.nombreprove%></td>
-                 <td><%-proveedores.telprove%></td>
-                 <td><%-proveedores.direccionprove%></td>
-                 <td><%-proveedores.correoprove%></td>
-                 <td>
-                    <button>EDITAR</button>
-                    <button>ELIMINAR</button>
-                </td>
-                </tr>
-            <% }) %>
-        </tbody>
-        
-    </table>
-</div>
 
+<div id="contenedor">
+    <%- include('template/navbar') %> 
+
+    <div id="titulo">
+        <h1>PROVEEDORES</h1>
+    </div>
+    
+    <div id="tbPro">
+
+        <div id="tb1">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>TELEFONO</th>
+                        <th>DIRECCION</th>
+                        <th>CORREO</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% results.forEach((proveedores) => { %>
+                        <tr>
+                         <td><%-proveedores.idProveedores %></td>
+                         <td><%-proveedores.nombreprove %></td>
+                         <td><%-proveedores.telprove %></td>
+                         <td><%-proveedores.direccionprove %></td>
+                         <td><%-proveedores.correoprove %></td>
+                         <td>
+                            <button id="btnEdit" >EDITAR</button>
+                            <button id="btnEli">ELIMINAR</button>
+                        </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+                
+            </table>
+
+        </div>
+       
+        <div class="formPro">
+            <form action="/save" method="post">
+
+                <p>Identificacion del proveedor:</p>
+                <input type="text" id="idProveedores" name="idProveedores"  placeholder="Escribir nombre completo" required>
+                <br>
+                <p>Nombre del proveedor:</p>
+                <input type="text" id="nombreprove" name="nombreprove"  placeholder="Escribir nombre completo" required>
+                <br>
+                <p>Telefono:</p>
+                <input type="tel" id="telprove" name="telprove" placeholder="Contacto con el proveedor" required>
+                <br>
+                <p>Direccion:</p>
+                <input type="text" id="direccionprove" name="direccionprove" placeholder="Barrio y nomenclatura">
+                <br>
+                <p>Correo:</p>
+                <input type="email" id="correoprove" name="correoprove" placeholder="@">
+                <br>
+
+                <input type="submit" value="GUARDAR">
+
+            </form>
+        </div>
+    </div>
+    
+    
+</div>
+  
 <%- include('template/piecera') %> 

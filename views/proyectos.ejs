@@ -1,38 +1,73 @@
 <%-include('template/cabecera',{tituloweb: 'PROYECTOS'}) %>
 
-
 <div id="contenedor">
-    <%- include('template/navbar') %>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>PROYECTO</th>
-                <th>DIRECCION</th>
-                <th>FECHA INICIAL</th>
-                <th>FECHA DE TERMINACION</th>
-                <th>CLIENTE</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <% results.forEach((gestionproyecto) => { %>
-                <tr>
-                 <td><%- gestionproyecto.idproye %></td>
-                 <td><%- gestionproyecto.nombreproye %></td>
-                 <td><%- gestionproyecto.direccionproye %></td>
-                 <td><%- gestionproyecto.fechainicialproye %></td>
-                 <td><%- gestionproyecto.fechafinalproye %></td>
-                 <td><%- gestionproyecto.clientes_idclientes%></td>
-                 <td>
-                    <button>EDITAR</button>
-                    <button>ELIMINAR</button>
-                </td>
-            <% }) %>
-        </tbody>
-        
-    </table>
+    <%- include('template/navbar') %> 
 
+    <div id="titulo">
+        <h1>CLIENTES</h1>
+    </div>
+    
+    <div id="tbPro">
+
+        <div id="tb1">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>PROYECTO</th>
+                        <th>DIRECCION</th>
+                        <th>FECHA INICIAL</th>
+                        <th>FECHA DE TERMINACION</th>
+                        <th>CLIENTE</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% results.forEach((gestionproyecto) => { %>
+                        <tr>
+                         <td><%- gestionproyecto.idproye %></td>
+                         <td><%- gestionproyecto.nombreproye %></td>
+                         <td><%- gestionproyecto.direccionproye %></td>
+                         <td><%- gestionproyecto.fechainicialproye %></td>
+                         <td><%- gestionproyecto.fechafinalproye %></td>
+                         <td><%- gestionproyecto.clientes_idclientes%></td>
+                         <td>
+                            <button id="btnEdit" >EDITAR</button>
+                            <button id="btnEli">ELIMINAR</button>
+                        </td>
+                    <% }) %>
+                </tbody>
+                
+            </table>
+
+        </div>
+       
+        <div class="formPro">
+            <form action="/save" method="post">
+
+                <p>Nombre del proyecto:</p>
+                <input type="text" name="nombre"  placeholder="Nombre que se le da al proyecto" required>
+                <br>
+                <p>Direccion:</p>
+                <input type="text" name="direccion" placeholder="Lugar donde se realiza el proyecto" required>
+                <br>
+                <p>Fecha inicial:</p>
+                <input type="date"   name="fechainicial" min="2022-01-01" max="2050-12-31" required>
+                <br>
+                <p>Fecha final:</p>
+                <input type="date"   name="fechafinal" min="2022-01-01" max="2050-12-31">
+                <br>
+                <p>Correo:</p>
+                <input type="email" name="nombre" placeholder="Empresa o personal">
+                <br>
+
+                <input type="submit" value="GUARDAR">
+
+            </form>
+        </div>
+    </div>
+    
+    
 </div>
     
 

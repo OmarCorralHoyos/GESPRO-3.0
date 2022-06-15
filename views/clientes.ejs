@@ -45,20 +45,24 @@
         <div class="formPro">
             <form action="/save" method="post">
 
+                <p>Identificacion del cliente:</p>
+                
+                <input type="text" id="idclientes" name="idclientes"  placeholder="nombre de persona o empresa" required>
+                <br>
                 <p>Nombre del solicitante:</p>
-                <input type="text" name="nombre"  placeholder="nombre de persona o empresa" required>
+                <input type="text" id="nombrecliente" name="nombrecliente"  placeholder="nombre de persona o empresa" required>
                 <br>
                 <p>Representante:</p>
-                <input type="text" name="nombre" placeholder="Diligenciar si es empresa">
+                <input type="text" id="representantecliente" name="representantecliente" placeholder="Diligenciar si es empresa">
                 <br>
                 <p>Direccion:</p>
-                <input type="text" name="nombre" placeholder="Barrio y nomenclatura" required>
+                <input type="text" id="direccioncliente" name="direccioncliente" placeholder="Barrio y nomenclatura" required>
                 <br>
                 <p>Telefono:</p>
-                <input type="tel" name="nombre" placeholder="Casa u oficina" required>
+                <input type="tel" id="telcliente" name="telcliente" placeholder="Casa u oficina" required>
                 <br>
                 <p>Correo:</p>
-                <input type="email" name="nombre" placeholder="Empresa o personal">
+                <input type="email" id="email" name="email" placeholder="Empresa o personal">
                 <br>
 
                 <input type="submit" value="GUARDAR">
