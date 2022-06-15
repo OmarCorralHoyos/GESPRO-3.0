@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>GESPRO</title>
+    <link rel="stylesheet"  href="/css/estilosInterfaz.css">
+</head>
+        
+<body>
+    <div id="contLogin">
+        <div id="login">
+            <h2> ACCESO USUARIOS</h2>          
+            <input id="userValidar" type="text" name="TxtNombre" placeholder="Usuario o Correo" required><br/>
+            <input id="passValidar" type="password" name="txtEmail" placeholder="contraseña"/><br/>
+            <input class="btn" type="submit" name="btnEnviar" onclick="validar()" value="INGRESAR"/>  
+        </div>
+    </div>
+
+<%- include('template/piecera') %> 

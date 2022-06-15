@@ -1,0 +1,75 @@
+<%-include('template/cabecera',{tituloweb: 'CLIENTES'}) %>
+
+<div id="contenedor">
+    <%- include('template/navbar') %> 
+
+    <div id="titulo">
+        <h1>CLIENTES</h1>
+    </div>
+    
+    <div id="tbPro">
+
+        <div id="tb1">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>CLIENTE</th>
+                        <th>REPRESENTANTE</th>
+                        <th>DIRECCION</th>
+                        <th>TELEFONO</th>
+                        <th>CORREO</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% results.forEach((clientes) => { %>
+                        <tr>
+                         <td><%- clientes.idclientes %></td>
+                         <td><%- clientes.nombrecliente %></td>
+                         <td><%- clientes.representantecliente %></td>
+                         <td><%- clientes.direccioncliente %></td>
+                         <td><%- clientes.telcliente %></td>
+                         <td><%- clientes.email %></td>
+                         <td>
+                            <button id="btnEdit" >EDITAR</button>
+                            <button id="btnEli">ELIMINAR</button>
+                        </td>
+                    <% }) %>
+                </tbody>
+                
+            </table>
+
+        </div>
+       
+        <div class="formPro">
+            <form action="/save" method="post">
+
+                <p>Nombre del solicitante:</p>
+                <input type="text" name="nombre"  placeholder="nombre de persona o empresa" required>
+                <br>
+                <p>Representante:</p>
+                <input type="text" name="nombre" placeholder="Diligenciar si es empresa">
+                <br>
+                <p>Direccion:</p>
+                <input type="text" name="nombre" placeholder="Barrio y nomenclatura" required>
+                <br>
+                <p>Telefono:</p>
+                <input type="tel" name="nombre" placeholder="Casa u oficina" required>
+                <br>
+                <p>Correo:</p>
+                <input type="email" name="nombre" placeholder="Empresa o personal">
+                <br>
+
+                <input type="submit" value="GUARDAR">
+
+            </form>
+        </div>
+    </div>
+    
+    
+</div>
+
+    
+<%- include('template/piecera') %> 
+    

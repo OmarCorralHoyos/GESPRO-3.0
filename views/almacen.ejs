@@ -1,0 +1,64 @@
+<%-include('template/cabecera',{tituloweb: 'ALMACEN'}) %>
+
+<div id="contenedor">
+    <%- include('template/navbar') %> 
+
+    <div id="titulo">
+        <h1>ALMACEN</h1>
+    </div>
+    
+    <div id="tbPro">
+
+        <div id="tb1">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE HERRAMIENTA</th>
+                        <th>ESTADO</th>
+                        <th>TIPO DE HERRAMIENTA</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% results.forEach((almacen) => { %>
+                        <tr>
+                         <td><%- almacen.idherra%></td>
+                         <td><%-almacen.nombreherra%></td>
+                         <td><%-almacen.estado%></td>
+                         <td><%-almacen.tipoherra%></td>
+                         <td>
+                            <button id="btnEdit" >EDITAR</button>
+                            <button id="btnEli">ELIMINAR</button>
+                        </td>
+                    <% }) %>
+                </tbody>
+                
+            </table>
+
+        </div>
+       
+        <div class="formPro">
+            <form action="/save" method="post">
+
+                <p>Nombre de la herramienta:</p>
+                <input type="text" name="nombre"  placeholder="Escribir nombre completo" required>
+                <br>
+                <p>Estado de la herramienta:</p>
+                <input type="text" name="nombre" placeholder="Estado fisico" required>
+                <br>
+                <p>Tipo de herramiento:</p>
+                <input type="text" name="nombre" placeholder="Campo u oficina">
+                <br>
+
+                <input type="submit" value="GUARDAR">
+
+            </form>
+        </div>
+    </div>
+    
+    
+</div>
+
+<%- include('template/piecera') %> 
+

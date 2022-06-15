@@ -1,0 +1,40 @@
+<%-include('template/cabecera',{tituloweb: 'EMPLEADOS'}) %>
+
+<div id="contenedor">
+    <%- include('template/navbar') %>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>DIRECCION</th>
+                <th>TELEFONO</th>
+                <th>CORREO</th>
+                <th>CARGO</th>
+                <th>SALARIO</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% results.forEach((empleados) => { %>
+                <tr>
+                 <td><%- empleados.idEmpleados %></td>
+                 <td><%- empleados.nombreempleado %></td>
+                 <td><%- empleados.direccionempleado %></td>
+                 <td><%- empleados.telempleado %></td>
+                 <td><%- empleados.emailempleado %></td>
+                 <td><%- empleados.cargoempleado %></td>
+                 <td><%- empleados.salarioempleado %></td>
+                 <td>
+                    <button id="btnEdit" >EDITAR</button>
+                    <button id="btnEli">ELIMINAR</button>
+                </td>
+                </tr>
+            <% }) %>
+        </tbody>
+        
+    </table>
+</div>
+    
+<%- include('template/piecera') %> 
+   

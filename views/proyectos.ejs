@@ -1,0 +1,39 @@
+<%-include('template/cabecera',{tituloweb: 'PROYECTOS'}) %>
+
+
+<div id="contenedor">
+    <%- include('template/navbar') %>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>PROYECTO</th>
+                <th>DIRECCION</th>
+                <th>FECHA INICIAL</th>
+                <th>FECHA DE TERMINACION</th>
+                <th>CLIENTE</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% results.forEach((gestionproyecto) => { %>
+                <tr>
+                 <td><%- gestionproyecto.idproye %></td>
+                 <td><%- gestionproyecto.nombreproye %></td>
+                 <td><%- gestionproyecto.direccionproye %></td>
+                 <td><%- gestionproyecto.fechainicialproye %></td>
+                 <td><%- gestionproyecto.fechafinalproye %></td>
+                 <td><%- gestionproyecto.clientes_idclientes%></td>
+                 <td>
+                    <button>EDITAR</button>
+                    <button>ELIMINAR</button>
+                </td>
+            <% }) %>
+        </tbody>
+        
+    </table>
+
+</div>
+    
+
+<%- include('template/piecera') %> 

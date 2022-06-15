@@ -1,0 +1,35 @@
+<%-include('template/cabecera',{tituloweb: 'PROVEEDORES'}) %>
+  
+<div id="contenedor">
+    <%- include('template/navbar') %>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>TELEFONO</th>
+                <th>DIRECCION</th>
+                <th>CORREO</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% results.forEach((proveedores) => { %>
+                <tr>
+                 <td><%- proveedores.idProveedores%></td>
+                 <td><%-proveedores.nombreprove%></td>
+                 <td><%-proveedores.telprove%></td>
+                 <td><%-proveedores.direccionprove%></td>
+                 <td><%-proveedores.correoprove%></td>
+                 <td>
+                    <button>EDITAR</button>
+                    <button>ELIMINAR</button>
+                </td>
+                </tr>
+            <% }) %>
+        </tbody>
+        
+    </table>
+</div>
+
+<%- include('template/piecera') %> 
