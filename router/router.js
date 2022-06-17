@@ -58,11 +58,17 @@ router.get('/almacen', (req, res)=>{
 router.get('/inicio', (req, res)=>{
     res.render('inicio');
 })
-
+router.get('/reportes', (req, res)=>{
+    res.render('reportes');
+})
 /* INSERTAR VALORES EN LAS TABLAS */ 
 
 const crud = require('../controllers/crud');
-router.post('/save',crud.save)
+router.post('/savealma',crud.savealma)
+router.post('/savecli',crud.savecli)
+router.post('/saveemp',crud.saveemp)
+router.post('/saveprove',crud.saveprove)
+router.post('/saveproye',crud.saveproye)
 
 
 module.exports=router;

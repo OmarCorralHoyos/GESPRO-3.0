@@ -39,22 +39,22 @@
         </div>
        
         <div class="formPro">
-            <form action="/save" method="post">
+            <form action="/savealma" method="post">
 
                 <p>Nombre de la herramienta:</p>
                 <input type="text" name="nombreherra" id="nombreherra"  placeholder="Escribir nombre completo" required>
                 <br>
                 <p>Estado de la herramienta:</p>
-                <select name="estadoherra" id="estadoherra">
-                    <option value="">Nuevo</option>
-                    <option value="">Usado</option>
-                    <option value="">Dañado</option>
+                <select name="estadoherra" id="estadoherra" required="true">
+                    <option value="Nuevo">Nuevo</option>
+                    <option value="Usado">Usado</option>
+                    <option value="Dañado">Dañado</option>
                 </select>
                 <br>
                 <p>Tipo de herramiento:</p>
-                <select name="tipoherra" id="tipoherra">
-                    <option value="">CAMPO</option>
-                    <option value="">Usado</option>
+                <select name="tipoherra" id="tipoherra" required="true">
+                    <option value="Campo">Campo</option>
+                    <option value="Oficina">Oficina</option>
                    
                 </select>
                 <br>

@@ -1,6 +1,6 @@
 const conexion= require('../database/db');
 
-exports.save=(req,res)=>{
+exports.savealma=(req,res)=>{
     const nombreherra = req.body.nombreherra
     const estadoherra = req.body.estadoherra
     const tipoherra = req.body.tipoherra
@@ -13,7 +13,7 @@ exports.save=(req,res)=>{
     })
 }
 
-exports.save=(req,res)=>{
+exports.savecli=(req,res)=>{
     const idclientes = req.body.idclientes
     const nombrecliente = req.body.nombrecliente
     const representantecliente = req.body.representantecliente
@@ -30,7 +30,7 @@ exports.save=(req,res)=>{
     })
 }
 
-exports.save=(req,res)=>{
+exports.saveemp=(req,res)=>{
     const idEmpleados = req.body.idEmpleados
     const nombreempleado = req.body.nombreempleado
     const direccionempleado = req.body.direccionempleado
@@ -49,7 +49,7 @@ exports.save=(req,res)=>{
     })
 }
 
-exports.save=(req,res)=>{
+exports.saveprove=(req,res)=>{
     const idProveedores = req.body.idProveedores
     const nombreprove = req.body.nombreprove
     const telprove = req.body.telprove
@@ -62,6 +62,21 @@ exports.save=(req,res)=>{
             console.log(error);
         }else{
             res.redirect('/proveedores')
+        }
+    })
+}
+exports.saveproye=(req,res)=>{
+    const nombreproye = req.body.nombreproye
+    const direccionproye = req.body.direccionproye
+    const fechainicialproye = req.body.fechainicialproye
+    const fechafinalproye = req.body.fechafinalproye
+    const clientes_idclientes = req.body.clientes_idclientes
+
+    conexion.query('INSERT INTO gestionproyecto SET ?', {nombreproye:nombreproye,direccionproye:direccionproye,fechainicialproye:fechainicialproye,fechafinalproye:fechafinalproye,clientes_idclientes:clientes_idclientes}, (error, results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.redirect('/proyectos')
         }
     })
 }

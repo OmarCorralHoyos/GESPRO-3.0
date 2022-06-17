@@ -4,7 +4,7 @@
     <%- include('template/navbar') %> 
 
     <div id="titulo">
-        <h1>CLIENTES</h1>
+        <h1>PROYECTOS</h1>
     </div>
     
     <div id="tbPro">
@@ -43,22 +43,22 @@
         </div>
        
         <div class="formPro">
-            <form action="/save" method="post">
+            <form action="/saveproye" method="post">
 
                 <p>Nombre del proyecto:</p>
-                <input type="text" name="nombre"  placeholder="Nombre que se le da al proyecto" required>
+                <input type="text" id="nombreproye" name="nombreproye"  placeholder="Nombre que se le da al proyecto" required>
                 <br>
                 <p>Direccion:</p>
-                <input type="text" name="direccion" placeholder="Lugar donde se realiza el proyecto" required>
+                <input type="text" id="direccionproye" name="direccionproye" placeholder="Lugar donde se realiza el proyecto" required>
                 <br>
                 <p>Fecha inicial:</p>
-                <input type="date"   name="fechainicial" min="2022-01-01" max="2050-12-31" required>
+                <input type="date" id="fechainicialproye"  name="fechainicialproye" min="2022-01-01" max="2050-12-31" required>
                 <br>
                 <p>Fecha final:</p>
-                <input type="date"   name="fechafinal" min="2022-01-01" max="2050-12-31">
+                <input type="date" id="fechafinalproye"  name="fechafinalproye" min="2022-01-01" max="2050-12-31">
                 <br>
-                <p>Correo:</p>
-                <input type="email" name="nombre" placeholder="Empresa o personal">
+                <p>Cliente:</p>
+                <input type="text" id="clientes_idclientes" name="clientes_idclientes" placeholder="Empresa o personal">
                 <br>
 
                 <input type="submit" value="GUARDAR">
