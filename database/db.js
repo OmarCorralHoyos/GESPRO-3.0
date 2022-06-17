@@ -6,7 +6,7 @@ const conexion = mysql.createConnection({
     host:'localhost',
     user:'root',
     password:'',
-    database:'db gespro' 
+    database:'gespro' 
 });
 
 conexion.connect((error)=>{

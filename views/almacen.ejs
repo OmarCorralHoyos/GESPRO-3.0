@@ -23,12 +23,12 @@
                 <tbody>
                     <% results.forEach((almacen) => { %>
                         <tr>
-                         <td><%- almacen.idherra%></td>
+                         <td><%-almacen.idherra%></td>
                          <td><%-almacen.nombreherra%></td>
                          <td><%-almacen.estado%></td>
                          <td><%-almacen.tipoherra%></td>
                          <td>
-                            <button id="btnEdit" >EDITAR</button>
+                            <a href="/edit/<%=almacen.idherra%>" id="btnEdit">EDITAR</a>
                             <button id="btnEli">ELIMINAR</button>
                         </td>
                     <% }) %>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="/css/editcliente.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+        
+    <title>EDITAR CLIENTES</title>
+</head>
+<body>
+    
+
+    <div id="contenedorcli">
+        <%- include('template/navbar') %> 
+
+        <div id="titulocli">
+            <h1>EDITAR CLIENTES</h1>
+        </div>
+        
+        
+        <% if (clientes) { %>  
+            <div class="formProcli">
+                <form action="/editcli" method="post">
+    
+                    <p>Identificacion del cliente:</p>
+                    <input type="text" id="idclientes" name="idclientes" value="<%= clientes.idclientes %>" placeholder="nombre de persona o empresa" required>
+                    <br>
+                    <p>Nombre del solicitante:</p>
+                    <input type="text" id="nombrecliente" name="nombrecliente" value="<%= clientes.nombrecliente %>" placeholder="nombre de persona o empresa" required>
+                    <br>
+                    <p>Representante:</p>
+                    <input type="text" id="representantecliente" name="representantecliente" value="<%=clientes.representantecliente %>" placeholder="Diligenciar si es empresa">
+                    <br>
+                    <p>Direccion:</p>
+                    <input type="text" id="direccioncliente" name="direccioncliente" value="<%= clientes.direccioncliente %>" placeholder="Barrio y nomenclatura" required>
+                    <br>
+                    <p>Telefono:</p>
+                    <input type="tel" id="telcliente" name="telcliente" value="<%= clientes.telcliente %>" placeholder="Casa u oficina" required>
+                    <br>
+                    <p>Correo:</p>
+                    <input type="email" id="email" name="email" value="<%= clientes.email %>" placeholder="Empresa o personal">
+                    <br>
+    
+                    <input type="submit" value="GUARDAR">
+    
+                </form>
+            </div>
+    <% } %>
+    
+</div>
+
+<%- include('template/piecera') %> 

@@ -50,43 +50,41 @@
    
 }
 .btn div h5{
+    font-size: 80%;
     padding-top: 8px;
     text-align: center;
     text-shadow: 2px 5px 6px black;
 }
 
-.salir #btnSalir{
-    width: 45%;
-    height: 40%;
-    margin-top: 27%;
-    margin-left: 25%;
+#nav-interfaz .salir{
+    width: 70%;
+    height: 70%;
+    margin-top: 5%;
+    margin-left: 15%;
+    border: solid 1px white;
     border-radius: 50%;
-    border: solid 3px firebrick;
     transition: all 0.3s ease;
-    box-shadow: 0px 10px 10px -6px black;
 }
-
-.salir #btnSalir:hover{
+#nav-interfaz .salir:hover{
     transform: scale(0.9);
 }
+#nav-interfaz .salir #imgsalir{
+    border: solid 2px red;
+    border-radius: 50%;
+    width: 40%;
+    height: 40%;
+    margin-top: 20%;
+    margin-left: 30%;
+   
+}
+
+#nav-interfaz .salir #imgsalir:hover{
+   
+}
+
 .salir h5{
     text-align: center;
-    padding-top: 8%;
+    padding-top: 2%;
     text-shadow: 2px 5px 6px black;
     
-}
-
-/*  lOGO DE INTERFAZ EN LA VENTANA DE INICIO*/
-
-#logoInterfaz{
-    width: 30%;
-    height: 30%;
-    margin-left: 35%;
-    margin-top: 13%;
-    position: absolute;
-    opacity: 0.2;
-    transition: all 0.3s ease;
-}
-#logoInterfaz:hover{
-    transform: scale(0.9);
 }

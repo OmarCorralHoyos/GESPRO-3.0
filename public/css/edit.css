@@ -1,0 +1,135 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color:rgb(17, 57, 145);
+    font-family: Arial, Helvetica, sans-serif;
+}
+#contenedoralma{
+    width: 99%;
+    margin: 0 auto;
+    position: absolute;
+    top: 1%;
+    left: 0;
+    right: 0;
+    bottom: 1%;
+    margin: auto;
+    background-image: url(/Imagenes/fondo\ interfaz.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    border: solid 1px white;
+    color: white;
+}
+
+#tbPro{
+    width: 98%;
+    margin: 1% auto;
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    height: 70%;
+
+}
+#tituloalma{
+    border: solid 2px white;
+    width: 20%;
+    margin: 3% auto;
+    box-shadow: 0px 10px 10px -6px black;
+}
+#tituloalma h1{
+    padding: 1%;
+    text-align: center;
+    text-shadow: 2px 5px 6px black;
+    
+}
+#tb1{
+    width: 98%;
+    margin: 0 auto;
+    height: 98%;
+    overflow:auto;
+    border: solid 1px white;
+}
+
+.formProalma{
+    width: 40%;
+    border: solid 2px white;
+    margin: 1% auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.formProalma p{
+    padding-bottom:2%;
+    padding-top: 2%;
+}
+.formProalma  input[type=submit]{
+    width: 30%;
+    margin: 3% auto;
+    margin-left: 35%;
+    border-radius: 5px;
+    background-color: chartreuse;
+    border-color: black;
+    padding: 1% 1% 1% 1%;
+    border-style: double;
+    transition: all 0.3s ease;
+    color: black;
+    opacity: 1;
+}
+.formProalma  input[type=submit]:hover{
+    transform: scale(0.9);
+    border-color: greenyellow;
+}
+.formProalma  input{
+    width: 98%;
+    opacity: 0.8;
+}
+.formProalma  select{
+    width: 98%;
+    opacity: 0.8;
+}
+
+table{
+    border: solid 2px white;
+    border-collapse:collapse;
+    width: 95%;
+    margin: 1% auto;
+    font-size: small; 
+}
+
+table td{
+    border: solid 0.5px white;
+    padding: 2px;
+
+}
+table th{
+    border: solid 0.5px white;
+    padding: 2px;
+    
+}
+
+#btnEdit{
+    border-radius: 5px;
+    background-color: deepskyblue;
+    border-color: black;
+    padding: 1% 1% 1% 1%;
+    border-style: double;
+    transition: all 0.3s ease;
+}
+#btnEdit:hover{
+    transform: scale(0.9);
+    border-color: greenyellow;
+}
+
+#btnEli{
+    color: white;
+    border-radius: 5px;
+    background-color: red;
+    border-color: black;
+    padding: 1% 1% 1% 1%;
+    border-style: double;
+    transition: all 0.3s ease;
+}
+#btnEli:hover{
+    transform: scale(0.9);
+    border-color: greenyellow;
+}
