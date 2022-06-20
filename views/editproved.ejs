@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="/css/editgeneral.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+        
+    <title>EDITAR PROVEEDORES</title>
+</head>
+<body>
+    
+
+    <div id="contenedor01">
+        <%- include('template/navbar') %> 
+
+        <div id="titulo01">
+            <h1>EDITAR PROVEEDORES</h1>
+        </div>
+        
+        
+        <% if (proveedores) { %>  
+            <div class="formPro01">
+                <form action="/editprove" method="post">
+
+                    <p>Identificacion del proveedor:</p>
+                    <input type="text" id="idProveedores" name="idProveedores" value="<%=proveedores.idProveedores  %> "  placeholder="Escribir nombre completo" required>
+                    <br>
+                    <p>Nombre del proveedor:</p>
+                    <input type="text" id="nombreprove" name="nombreprove" value="<%=proveedores.nombreprove  %> "  placeholder="Escribir nombre completo" required>
+                    <br>
+                    <p>Telefono:</p>
+                    <input type="tel" id="telprove" name="telprove" value="<%=proveedores.telprove  %> " placeholder="Contacto con el proveedor" required>
+                    <br>
+                    <p>Direccion:</p>
+                    <input type="text" id="direccionprove" name="direccionprove" value="<%=proveedores.direccionprove  %> " placeholder="Barrio y nomenclatura">
+                    <br>
+                    <p>Correo:</p>
+                    <input type="email" id="correoprove" name="correoprove" value="<%=proveedores.correoprove  %> " placeholder="@">
+                    <br>
+    
+                    <input type="submit" value="GUARDAR">
+    
+                </form>
+            </div>
+            
+    <% } %>
+    
+</div>
+
+<%- include('template/piecera') %> 

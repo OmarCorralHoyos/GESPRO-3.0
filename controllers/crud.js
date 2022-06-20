@@ -1,5 +1,21 @@
 const conexion= require('../database/db');
 
+exports.savelog=(req,res)=>{
+    const idUsuario = req.body.idUsuario
+    const nombreCompleto = req.body.nombreCompleto
+    const nombreUsuario = req.body.nombreUsuario
+    const contraseñauser = req.body.contraseñauser
+    const rol = req.body.rol
+
+    conexion.query('INSERT INTO usuarios SET ?', {idUsuario:idUsuario,nombreCompleto:nombreCompleto, nombreUsuario:nombreUsuario,contraseñauser:contraseñauser,rol:rol}, (error, results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.redirect('/users')
+        }
+    })
+}
+
 exports.savealma=(req,res)=>{
     const nombreherra = req.body.nombreherra
     const estadoherra = req.body.estadoherra
@@ -80,7 +96,23 @@ exports.saveproye=(req,res)=>{
         }
     })
 }
+
 /* Editar registros ****************************************************************/
+exports.editlogin=(req,res)=>{
+    const idUsuario = req.body.idUsuario
+    const nombreCompleto = req.body.nombreCompleto
+    const nombreUsuario = req.body.nombreUsuario
+    const contraseñauser = req.body.contraseñauser
+    const rol = req.body.rol
+
+    conexion.query('UPDATE usuarios SET ? WHERE idUsuario =?', [{idUsuario:idUsuario,nombreCompleto:nombreCompleto,nombreUsuario:nombreUsuario,contraseñauser:contraseñauser,rol:rol},idUsuario],(error, results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.redirect('/users')
+        }
+    });
+};
 
 exports.editalma = (req,res)=>{
     const idherra = req.body.idherra;
@@ -114,7 +146,7 @@ exports.editcli=(req,res)=>{
     })
 }
 
-exports.editemp=(req,res)=>{
+exports.editemple=(req,res)=>{
     const idEmpleados = req.body.idEmpleados
     const nombreempleado = req.body.nombreempleado
     const direccionempleado = req.body.direccionempleado

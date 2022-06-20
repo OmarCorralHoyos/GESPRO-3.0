@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="/css/edit.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+        
+    <title>EDITAR CLIENTES</title>
+</head>
+<body>
+    
+
+    <div id="contenedoralma">
+        <%- include('template/navbar') %> 
+
+        <div id="tituloalma">
+            <h1>EDITAR HERRAMIENTA</h1>
+        </div>
+        
+        
+        <% if (almacen) { %>  
+            <div class="formProalma">
+                <form action="/editalma" method="post">
+                    <input id="idherra" name="idherra" value="<%= almacen.idherra%>" hidden>
+                    <p>Nombre de la herramienta:</p>
+                    <input type="text" name="nombreherra" id="nombreherra" value="<%=almacen.nombreherra%>" placeholder="Escribir nombre completo" required>
+                    <br>
+                    <p>Estado de la herramienta:</p>
+                    <select name="estadoherra" id="estadoherra"  required="true">
+                        <option <%=almacen.estado =='Nuevo' ? "selected" : "" %>value="Nuevo">Nuevo</option>
+                        <option <%=almacen.estado =='Usado' ? "selected" : "" %>value="Usado">Usado</option>
+                        <option <%=almacen.estado =='Dañado' ? "selected" : "" %>value="Dañado">Dañado</option>
+                    </select>
+                    <br>
+                        <p>Tipo de herramiento:</p>
+                    <select name="tipoherra" id="tipoherra" required="true">
+                        <option <%=almacen.estado =='Campo' ? "selected" : "" %> value="Campo">Campo</option>
+                        <option <%=almacen.estado =='Oficina' ? "selected" : "" %>value="Oficina">Oficina</option>
+                        
+                    </select>
+                    <br>
+
+                        <input type="submit" value="GUARDAR">
+
+                </form>
+                
+            </div>
+        <% } %>
+    
+</div>
+
+<%- include('template/piecera') %> 

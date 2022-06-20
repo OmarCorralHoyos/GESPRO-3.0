@@ -88,25 +88,6 @@ body{
     opacity: 0.8;
 }
 
-table{
-    border: solid 2px white;
-    border-collapse:collapse;
-    width: 95%;
-    margin: 1% auto;
-    font-size: small; 
-}
-
-table td{
-    border: solid 0.5px white;
-    padding: 2px;
-
-}
-table th{
-    border: solid 0.5px white;
-    padding: 2px;
-    
-}
-
 #btnEdit{
     border-radius: 5px;
     background-color: deepskyblue;

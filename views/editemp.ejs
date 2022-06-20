@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="/css/editgeneral.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+        
+    <title>EDITAR EMPLEADOS</title>
+</head>
+<body>
+    
+
+    <div id="contenedor01">
+        <%- include('template/navbar') %> 
+
+        <div id="titulo01">
+            <h1>EDITAR EMPLEADOS</h1>
+        </div>
+        
+        
+        <% if (empleados) { %>  
+            <div class="formPro01">
+                <form action="/editemple" method="post">
+    
+                    <p>Identificacion empleado:</p>
+                    <input type="text" id="idEmpleados" name="idEmpleados" value="<%=empleados.idEmpleados  %> "  placeholder="nombre completo" required>
+                    <br>
+                    <p>Nombre del empleado:</p>
+                    <input type="text" id="nombreempleado" name="nombreempleado" value="<%=empleados.nombreempleado  %> "  placeholder="nombre completo" required>
+                    <br>
+                    <p>Direccion:</p>
+                    <input type="text" id="direccionempleado" name="direccionempleado" value="<%=empleados.direccionempleado  %> "  placeholder="Lugar donde reside">
+                    <br>
+                    <p>Telefono:</p>
+                    <input type="tel" id="telempleado" name="telempleado" value="<%=empleados.telempleado  %> "  placeholder="Fijo o celular" required>
+                    <br>
+                    <p>Correo:</p>
+                    <input type="email" id="emailempleado" name="emailempleado" value="<%=empleados.emailempleado  %> "  placeholder="Verificar correo" >
+                    <br>
+                    <p>Cargo:</p>
+                    <input type="text" id="cargoempleado" name="cargoempleado" value="<%=empleados.cargoempleado  %> "  placeholder="Labor que desempeña" required>
+                    <br>
+                    <p>Salario:</p>
+                    <input type="number" id="salarioempleado" name="salarioempleado" value="<%=empleados.salarioempleado  %> "  placeholder="$$$">
+                    <br>
+    
+                    <input type="submit" value="GUARDAR">
+    
+                </form>
+            </div>
+            
+        <% } %>
+    
+    </div>
+
+<%- include('template/piecera') %> 

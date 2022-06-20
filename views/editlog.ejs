@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="/css/editgeneral.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+        
+    <title>EDITAR USUARIOS</title>
+</head>
+<body>
+    
+
+    <div id="contenedor01">
+        <%- include('template/navbar') %> 
+
+        <div id="titulo01">
+            <h1>EDITAR USUARIOS</h1>
+        </div>
+        
+        
+        <% if (usuarios) { %>  
+            <div class="formPro01">
+                <form action="/editlogin" method="post">
+
+                    <p>Identificacion del Usuario:</p>
+                    <input type="number" id="idUsuario" name="idUsuario" value="<%=usuarios.idUsuario %>" placeholder="Numero de identificacion" required>
+                    <br>
+                    <p>Nombre del Usuario:</p>
+                    <input type="text" id="nombreCompleto" name="nombreCompleto" value="<%=usuarios.nombreComplet %>" placeholder="Nombre de persona" required>
+                    <br>
+                    <p>Nombre de Usuario:</p>
+                    <input type="text" id="nombreUsuario" name="nombreUsuario" value="<%=usuarios.nombreUsuario %>" placeholder="Apodo" required>
+                    <br>
+                    <p>Contraseña:</p>
+                    <input type="text" id="contraseñauser" name="contraseñauser" value="<%=usuarios.contraseña %>" placeholder="Contraseña que pueda recordar" required>
+                    <br>
+                    <p>Rol:</p>
+                    <select name="rol" id="rol" required="true">
+                        <option <%=usuarios.rol =='Administrador' ? "selected" : "" %>value="Administrador">Administrador</option>
+                        <option <%=usuarios.rol =='General' ? "selected" : "" %> value="General">General</option>
+                       
+                    </select>
+                    <br>
+    
+                    <input type="submit" value="GUARDAR">
+    
+                </form>
+                 
+            </div>
+        <% } %>
+    
+    </div>
+
+    <%- include('template/piecera') %> 

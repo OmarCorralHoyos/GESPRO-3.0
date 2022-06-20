@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link rel="stylesheet" href="/css/editcliente.css">
+    <link rel="stylesheet" href="/css/editgeneral.css">
     <link rel="stylesheet" href="/css/navbar.css">
         
     <title>EDITAR CLIENTES</title>
@@ -12,16 +12,16 @@
 <body>
     
 
-    <div id="contenedorcli">
+    <div id="contenedor01">
         <%- include('template/navbar') %> 
 
-        <div id="titulocli">
+        <div id="titulo01">
             <h1>EDITAR CLIENTES</h1>
         </div>
         
         
         <% if (clientes) { %>  
-            <div class="formProcli">
+            <div class="formPro01">
                 <form action="/editcli" method="post">
     
                     <p>Identificacion del cliente:</p>
@@ -47,8 +47,8 @@
     
                 </form>
             </div>
-    <% } %>
+        <% } %>
     
-</div>
+    </div>
 
 <%- include('template/piecera') %> 

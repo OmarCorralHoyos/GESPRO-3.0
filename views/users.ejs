@@ -1,0 +1,76 @@
+<%-include('template/cabecera',{tituloweb: 'USUARIOS'}) %>
+
+<div id="contenedor">
+    <%- include('template/navbar') %> 
+
+    <div id="titulo">
+        <h1>USUARIOS</h1>
+    </div>
+    
+    <div id="tbPro">
+
+        <div id="tb1">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE COMPLETO</th>
+                        <th>NOMBRE DE USUARIO</th>
+                        <th>CONTRASEÑA</th>
+                        <th>ROL DEL USUARIO</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% results.forEach((usuarios) => { %>
+                        <tr>
+                         <td><%-usuarios.idUsuario%></td>
+                         <td><%-usuarios.nombreCompleto%></td>
+                         <td><%-usuarios.nombreUsuario%></td>
+                         <td><%-usuarios.contraseñauser%></td>
+                         <td><%-usuarios.rol%></td>
+                         <td>
+                            <a href="/editlog/<%=usuarios.idUsuario%>" id="btnEdit">EDITAR</a>
+                            <a href="/deletelog/<%=usuarios.idUsuario%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">ELIMINAR</a>
+                        
+                        </td>
+                    <% }) %>
+                </tbody>
+                
+            </table>
+
+        </div>
+       
+        <div class="formPro">
+            <form action="/savelog" method="post">
+
+                <p>Identificacion del Usuario:</p>
+                <input type="number" id="idUsuario" name="idUsuario"  placeholder="Numero de identificacion" required>
+                <br>
+                <p>Nombre del Usuario:</p>
+                <input type="text" id="nombreCompleto" name="nombreCompleto"  placeholder="Nombre de persona" required>
+                <br>
+                <p>Nombre de Usuario:</p>
+                <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Apodo" required>
+                <br>
+                <p>Contraseña:</p>
+                <input type="text" id="contraseñauser" name="contraseñauser" placeholder="Contraseña que pueda recordar" required>
+                <br>
+                <p>Rol:</p>
+                <select name="rol" id="rol" required="true">
+                    <option value="Administrador">Administrador</option>
+                    <option value="General">General</option>
+                   
+                </select>
+                <br>
+
+                <input type="submit" value="GUARDAR">
+
+            </form>
+        </div>
+    </div>
+    
+    
+</div>
+
+<%- include('template/piecera') %> 

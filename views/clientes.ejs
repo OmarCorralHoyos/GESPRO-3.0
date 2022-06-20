@@ -32,8 +32,8 @@
                          <td><%- clientes.telcliente %></td>
                          <td><%- clientes.email %></td>
                          <td>
-                            <a href="/editcliente/<%- clientes.idclientes %>" id="btnEdit">EDITAR</a>
-                            <button id="btnEli">ELIMINAR</button>
+                            <a href="/editcliente/<%=clientes.idclientes %>" id="btnEdit">EDITAR</a>
+                            <a href="/deletecli/<%=clientes.idclientes%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">ELIMINAR</a>
                         </td>
                     <% }) %>
                 </tbody>

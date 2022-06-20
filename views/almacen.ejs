@@ -28,8 +28,9 @@
                          <td><%-almacen.estado%></td>
                          <td><%-almacen.tipoherra%></td>
                          <td>
-                            <a href="/edit/<%=almacen.idherra%>" id="btnEdit">EDITAR</a>
-                            <button id="btnEli">ELIMINAR</button>
+                            <a href="/edital/<%=almacen.idherra%>" id="btnEdit">EDITAR</a>
+                            <a href="/deleteal/<%=almacen.idherra%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">ELIMINAR</a>
+                        
                         </td>
                     <% }) %>
                 </tbody>

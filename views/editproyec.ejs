@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="/css/editgeneral.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+        
+    <title>EDITAR PROYECTOS</title>
+</head>
+<body>
+    
+
+    <div id="contenedor01">
+        <%- include('template/navbar') %> 
+
+        <div id="titulo01">
+            <h1>EDITAR PROYECTOS</h1>
+        </div>
+        
+        
+        <% if (gestionproyecto) { %>  
+            <div class="formPro01">
+                <form action="/editproye" method="post">
+                    <input id="idproye" name="idproye" value="<%= gestionproyecto.idproye%>" hidden>
+                    <p>Nombre del proyecto:</p>
+                    <input type="text" id="nombreproye" name="nombreproye" value="<%=gestionproyecto.nombreproye  %> "  placeholder="Nombre que se le da al proyecto" required>
+                    <br>
+                    <p>Direccion:</p>
+                    <input type="text" id="direccionproye" name="direccionproye" value="<%=gestionproyecto.direccionproye  %> " placeholder="Lugar donde se realiza el proyecto" required>
+                    <br>
+                    <p>Fecha inicial:</p>
+                    <input type="date" id="fechainicialproye"  name="fechainicialproye" value="<%=gestionproyecto.fechainicialproye  %> " min="2022-01-01" max="2050-12-31" required>
+                    <br>
+                    <p>Fecha final:</p>
+                    <input type="date" id="fechafinalproye"  name="fechafinalproye" value="<%=gestionproyecto.fechafinalproye  %> " min="2022-01-01" max="2050-12-31">
+                    <br>
+                    <p>Cliente:</p>
+                    <input type="text" id="clientes_idclientes" name="clientes_idclientes" value="<%=gestionproyecto.clientes_idclientes  %> " placeholder="Empresa o personal">
+                    <br>
+    
+                    <input type="submit" value="GUARDAR">
+    
+                </form>
+            </div>
+            
+         <% } %>
+    
+</div>
+
+<%- include('template/piecera') %> 

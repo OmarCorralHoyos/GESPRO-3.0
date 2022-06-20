@@ -32,8 +32,8 @@
                          <td><%- gestionproyecto.fechafinalproye %></td>
                          <td><%- gestionproyecto.clientes_idclientes%></td>
                          <td>
-                            <button id="btnEdit" >EDITAR</button>
-                            <button id="btnEli">ELIMINAR</button>
+                            <a href="/editproyec/<%= gestionproyecto.idproye %>" id="btnEdit">EDITAR</a>
+                            <a href="/deleteproye/<%=gestionproyecto.idproye%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">ELIMINAR</a>
                         </td>
                     <% }) %>
                 </tbody>

@@ -30,8 +30,8 @@
                          <td><%-proveedores.direccionprove %></td>
                          <td><%-proveedores.correoprove %></td>
                          <td>
-                            <button id="btnEdit" >EDITAR</button>
-                            <button id="btnEli">ELIMINAR</button>
+                            <a href="/editproved/<%= proveedores.idProveedores %>" id="btnEdit">EDITAR</a>
+                            <a href="/deleteprove/<%=proveedores.idProveedores%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">ELIMINAR</a>
                         </td>
                         </tr>
                     <% }) %>

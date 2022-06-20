@@ -35,8 +35,8 @@
                          <td><%- empleados.cargoempleado %></td>
                          <td><%- empleados.salarioempleado %></td>
                          <td>
-                            <button id="btnEdit" >EDITAR</button>
-                            <button id="btnEli">ELIMINAR</button>
+                            <a href="/editemp/<%=empleados.idEmpleados %>" id="btnEdit">EDITAR</a>
+                            <a href="/deleteemp/<%=empleados.idEmpleados%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">ELIMINAR</a>
                         </td>
                         </tr>
                     <% }) %>

@@ -9,6 +9,17 @@ router.get('/', (req, res)=>{
 });
 
 /*  Monstrar Valores en las tablas*/
+
+router.get('/users', (req, res)=>{
+    conexion.query('SELECT * FROM usuarios',(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('users' , {results:results});
+        }
+    })
+})
+
 router.get('/proyectos', (req, res)=>{
     conexion.query('SELECT * FROM gestionproyecto',(error,results)=>{
         if(error){
@@ -46,6 +57,7 @@ router.get('/empleados', (req, res)=>{
         }
     })
 })
+
 router.get('/almacen', (req, res)=>{
     conexion.query('SELECT * FROM almacen',(error,results)=>{
         if(error){
@@ -65,20 +77,35 @@ router.get('/reportes', (req, res)=>{
 /* INSERTAR VALORES EN LAS TABLAS */ 
 
 const crud = require('../controllers/crud');
+router.post('/savelog',crud.savelog)
 router.post('/savealma',crud.savealma)
 router.post('/savecli',crud.savecli)
 router.post('/saveemp',crud.saveemp)
 router.post('/saveprove',crud.saveprove)
 router.post('/saveproye',crud.saveproye)
 
+
 /* EDITAR VALORES DE LAS TABLAS */ 
-router.get('/edit/:idherra',(req,res)=>{
+router.get('/editlog/:idherra',(req,res)=>{
+    const idUsuario = req.params.idUsuario;
+    conexion.query('SELECT * FROM usuarios WHERE idUsuario=?',[idUsuario],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('editlog' , {usuarios:results[0]});
+        }
+    })
+})
+
+router.post('/editlogin',crud.editlogin);
+
+router.get('/edital/:idherra',(req,res)=>{
     const idherra = req.params.idherra;
     conexion.query('SELECT * FROM almacen WHERE idherra=?',[idherra],(error,results)=>{
         if(error){
             throw error;
         }else{
-            res.render('edit' , {almacen:results[0]});
+            res.render('edital' , {almacen:results[0]});
         }
     })
 })
@@ -100,27 +127,27 @@ router.get('/editcliente/:idclientes',(req,res)=>{
 router.post('/editcli',crud.editcli);
 
 
-router.get('/edit/:idEmpleados',(req,res)=>{
+router.get('/editemp/:idEmpleados',(req,res)=>{
     const idEmpleados = req.params.idEmpleados;
     conexion.query('SELECT * FROM empleados WHERE idEmpleados=?',[idEmpleados],(error,results)=>{
         if(error){
             throw error;
         }else{
-            res.render('edit' , {empleados:results[0]});
+            res.render('editemp' , {empleados:results[0]});
         }
     })
 })
 
-router.post('/editemp',crud.editemp);
+router.post('/editemple',crud.editemple);
 
 
-router.get('/edit/:idproye',(req,res)=>{
+router.get('/editproyec/:idproye',(req,res)=>{
     const idproye = req.params.idproye;
     conexion.query('SELECT * FROM gestionproyecto WHERE idproye=?',[idproye],(error,results)=>{
         if(error){
             throw error;
         }else{
-            res.render('edit' , {gestionproyecto:results[0]});
+            res.render('editproyec' , {gestionproyecto:results[0]});
         }
     })
 })
@@ -128,18 +155,86 @@ router.get('/edit/:idproye',(req,res)=>{
 router.post('/editproye',crud.editproye);
 
 
-router.get('/edit/:idProveedores',(req,res)=>{
+router.get('/editproved/:idProveedores',(req,res)=>{
     const idProveedores = req.params.idProveedores;
     conexion.query('SELECT * FROM proveedores WHERE idProveedores=?',[idProveedores],(error,results)=>{
         if(error){
             throw error;
         }else{
-            res.render('edit' , {proveedores:results[0]});
+            res.render('editproved' , {proveedores:results[0]});
         }
     })
 })
 
 router.post('/editprove',crud.editprove);
+
+/* ELIMINAR UN REGISTRO **************************************************/ 
+
+router.get('/deletelog/:idUsuario',(req,res)=>{
+    const idherra = req.params.idherra;
+    conexion.query('DELETE FROM usuarios WHERE idUsuario=?',[idUsuario],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.redirect('/users');
+        }
+    })
+});
+
+router.get('/deleteal/:idherra',(req,res)=>{
+    const idherra = req.params.idherra;
+    conexion.query('DELETE FROM almacen WHERE idherra=?',[idherra],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.redirect('/almacen');
+        }
+    })
+});
+
+router.get('/deletecli/:idclientes',(req,res)=>{
+    const idclientes = req.params.idclientes;
+    conexion.query('DELETE FROM clientes WHERE idclientes=?',[idclientes],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.redirect('/clientes');
+        }
+    })
+});
+
+router.get('/deleteemp/:idEmpleados',(req,res)=>{
+    const idEmpleados = req.params.idEmpleados;
+    conexion.query('DELETE FROM empleados WHERE idEmpleados=?',[idEmpleados],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.redirect('/empleados');
+        }
+    })
+});
+
+router.get('/deleteproye/:idproye',(req,res)=>{
+    const idproye = req.params.idproye;
+    conexion.query('DELETE FROM gestionproyecto WHERE idproye=?',[idproye],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.redirect('/proyectos');
+        }
+    })
+});
+
+router.get('/deleteprove/:idProveedores',(req,res)=>{
+    const idProveedores = req.params.idProveedores;
+    conexion.query('DELETE FROM proveedores WHERE idProveedores=?',[idProveedores],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.redirect('/proveedores');
+        }
+    })
+});
 
 
 
