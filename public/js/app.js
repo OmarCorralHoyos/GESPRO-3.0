@@ -9,7 +9,6 @@ function validar(){
     {
         window.location.href='https://gespro-01.herokuapp.com/inicio'
         
-        
     }
     else
     {
