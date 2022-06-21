@@ -17,4 +17,5 @@ conexion.connect((error)=>{
     console.log('¡Conectado a la db gespro del proyecto!');
 })
 
+
 module.exports=conexion
