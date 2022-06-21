@@ -86,7 +86,7 @@ router.post('/saveproye',crud.saveproye)
 
 
 /* EDITAR VALORES DE LAS TABLAS */ 
-router.get('/editlog/:idherra',(req,res)=>{
+router.get('/editlog/:idUsuario',(req,res)=>{
     const idUsuario = req.params.idUsuario;
     conexion.query('SELECT * FROM usuarios WHERE idUsuario=?',[idUsuario],(error,results)=>{
         if(error){
@@ -171,7 +171,7 @@ router.post('/editprove',crud.editprove);
 /* ELIMINAR UN REGISTRO **************************************************/ 
 
 router.get('/deletelog/:idUsuario',(req,res)=>{
-    const idherra = req.params.idherra;
+    const idUsuario = req.params.idUsuario;
     conexion.query('DELETE FROM usuarios WHERE idUsuario=?',[idUsuario],(error,results)=>{
         if(error){
             throw error;
