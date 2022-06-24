@@ -1,13 +1,13 @@
 const conexion= require('../database/db');
 
 exports.savelog=(req,res)=>{
-    const idUsuario = req.body.idUsuario
+    
     const nombreCompleto = req.body.nombreCompleto
     const nombreUsuario = req.body.nombreUsuario
     const contraseñauser = req.body.contraseñauser
     const rol = req.body.rol
 
-    conexion.query('INSERT INTO usuarios SET ?', {idUsuario:idUsuario,nombreCompleto:nombreCompleto, nombreUsuario:nombreUsuario,contraseñauser:contraseñauser,rol:rol}, (error, results)=>{
+    conexion.query('INSERT INTO usuarios SET ?', {nombreCompleto:nombreCompleto, nombreUsuario:nombreUsuario,contraseñauser:contraseñauser,rol:rol}, (error, results)=>{
         if(error){
             console.log(error);
         }else{

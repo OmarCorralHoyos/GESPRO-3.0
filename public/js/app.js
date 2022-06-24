@@ -7,8 +7,7 @@ function validar(){
 
     if(usuario == "HCBSAS" && Contraseña == "GESPRO")
     {
-        window.location.href='http://localhost:5001/inicio'
-        
+        window.location.href='http://localhost:3000/inicio'
         
     }
     else

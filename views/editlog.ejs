@@ -24,17 +24,17 @@
             <div class="formPro01">
                 <form action="/editlogin" method="post">
 
-                    <p>Identificacion del Usuario:</p>
-                    <input type="number" id="idUsuario" name="idUsuario" value="<%=usuarios.idUsuario %>" placeholder="Numero de identificacion" required>
+                    
+                    <input type="number" id="idUsuario" name="idUsuario" value="<%=usuarios.idUsuario %>" placeholder="Numero de identificacion" hidden>
                     <br>
                     <p>Nombre del Usuario:</p>
-                    <input type="text" id="nombreCompleto" name="nombreCompleto" value="<%=usuarios.nombreComplet %>" placeholder="Nombre de persona" required>
+                    <input type="text" id="nombreCompleto" name="nombreCompleto" value="<%=usuarios.nombreCompleto %>" placeholder="Nombre de persona" required>
                     <br>
                     <p>Nombre de Usuario:</p>
                     <input type="text" id="nombreUsuario" name="nombreUsuario" value="<%=usuarios.nombreUsuario %>" placeholder="Apodo" required>
                     <br>
                     <p>Contraseña:</p>
-                    <input type="text" id="contraseñauser" name="contraseñauser" value="<%=usuarios.contraseña %>" placeholder="Contraseña que pueda recordar" required>
+                    <input type="text" id="contraseñauser" name="contraseñauser" value="<%=usuarios.contraseñauser %>" placeholder="Contraseña que pueda recordar" required>
                     <br>
                     <p>Rol:</p>
                     <select name="rol" id="rol" required="true">

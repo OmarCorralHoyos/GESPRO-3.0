@@ -2,7 +2,7 @@ const { json } = require('express');
 const express = require('express');
 const app = express();
 
-const port = process.env.PORT || 5001;
+const puerto = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views')
@@ -14,8 +14,8 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', require('./router/router'));
 
 
-app.listen(port, ()=>{
-    console.log('SERVER corriendo en http://localhost:5001');
+app.listen(puerto, ()=>{
+    console.log('SERVER corriendo en http://localhost:',puerto);
 });
 
 module.exports = app;
