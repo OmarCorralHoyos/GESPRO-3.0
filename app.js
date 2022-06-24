@@ -2,7 +2,9 @@ const { json } = require('express');
 const express = require('express');
 const app = express();
 
-const puerto = process.env.PORT || 3000;
+require('dotenv').config()
+
+const puerto = process.env.PORT;
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views')

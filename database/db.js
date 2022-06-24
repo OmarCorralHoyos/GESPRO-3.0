@@ -1,15 +1,14 @@
 /* Conexion base de datos */ 
 
 const mysql = require("mysql");
+const { path } = require("../app");
 
 const conexion = mysql.createConnection({
-    host:'j3kq4eog6ra2.aws-sa-east-1-1.psdb.cloud',
-    user:'0gekc4etxnzc',
-    password:'pscale_pw_nkTiO89g8IRWcoBBWFHB-n06K1xulrOJ9j3qV2jiN5w',
-    database:'gespro', 
-    ssl: {
-        rejectUnauthorized: false
-    }
+    host:process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password:process.env.DB_PASSWORD,
+    database:process.env.DB_NAME, 
+    ssl:{rejectUnauthorized: false}
 });
 
 conexion.connect((error)=>{
