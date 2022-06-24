@@ -7,10 +7,10 @@ function validar(){
 
     if(usuario == "HCBSAS" && Contraseña == "GESPRO")
     {
-        window.location.href='http://localhost:3000/inicio'
-        
-    }
-    else
+
+        window.location.href='https://gespro-01.herokuapp.com/inicio'
+
+    }else
     {
         alert("Verifique su contraseña");
     }
