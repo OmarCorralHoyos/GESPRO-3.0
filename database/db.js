@@ -10,7 +10,6 @@ const conexion = mysql.createConnection({
     user:"b138f12fd71727",
     password:"4cd940ed",
     database:"heroku_5b04aad607e484f", 
-    port:"5432",
     ssl:{rejectUnauthorized: false}
 });
 
