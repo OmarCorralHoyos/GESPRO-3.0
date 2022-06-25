@@ -6,10 +6,10 @@ const { path } = require("../app");
 require('dotenv').config({path:'./.env'})
 
 const conexion = mysql.createConnection({
-    host:process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password:process.env.DB_PASSWORD,
-    database:process.env.DB_NAME, 
+    host:"us-cdbr-east-05.cleardb.net",
+    user:"b138f12fd71727",
+    password:"4cd940ed",
+    database:"heroku_5b04aad607e484f", 
     ssl:{rejectUnauthorized: false}
 });
 
