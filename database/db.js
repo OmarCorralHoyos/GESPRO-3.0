@@ -5,23 +5,25 @@ const { path } = require("../app");
 
 require('dotenv').config({path:'./.env'})
 
-const conexion = mysql.createConnection({
-    host:"us-cdbr-east-05.cleardb.net",
-    user:"b138f12fd71727",
-    password:"4cd940ed",
-    database:"heroku_5b04aad607e484f", 
+const pool = mysql.createPool({
+    host:process.env.DB_HOST,
+    user:process.env.DB_USER,
+    password:process.env.DB_PASSWORD,
+    database:process.env.DB_NAME, 
     ssl:{rejectUnauthorized: false}
 });
 
-conexion.connect((error)=>{
-    if(error){
-        console.error('El error de conexion es: '+error);
+pool.query('select 1 + 1', (err, rows) => { 
+     if(err){
+        console.err('El error de conexion es: '+err);
         return
     }
     console.log('¡Conectado a la db gespro del proyecto!');
-})
+});
 
-module.exports=conexion
+
+
+
 
 
 
