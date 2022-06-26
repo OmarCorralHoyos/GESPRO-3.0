@@ -5,7 +5,7 @@ const { path } = require("../app");
 
 require('dotenv').config({path:'./.env'})
 
-const pool = mysql.createPool({
+const conexion = mysql.createPool({
     host:process.env.DB_HOST,
     user:process.env.DB_USER,
     password:process.env.DB_PASSWORD,
@@ -13,7 +13,7 @@ const pool = mysql.createPool({
     ssl:{rejectUnauthorized: false}
 });
 
-pool.query('select 1 + 1', (err, rows) => { 
+conexion.query('select 1 + 1', (err, rows) => { 
      if(err){
         console.err('El error de conexion es: '+err);
         return
@@ -23,7 +23,7 @@ pool.query('select 1 + 1', (err, rows) => {
 
 
 
-
+module.exports=conexion
 
 
 
