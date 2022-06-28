@@ -74,3 +74,18 @@ body{
     padding: 2%;
     text-align: center;
 }
+
+@media screen and (max-width: 1000px) {
+    #login{
+        width: 40%;
+        height: 40%;
+        margin: 13% auto;
+        border: solid 1px silver; 
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px 2px rgb(241, 245, 244);
+        color: yellow;
+        
+    }
+}
+
+

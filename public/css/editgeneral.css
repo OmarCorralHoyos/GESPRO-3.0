@@ -115,3 +115,23 @@ body{
     transform: scale(0.9);
     border-color: greenyellow;
 }
+
+@media screen and (max-width: 1000px) {
+    #titulo01{
+        border: solid 2px white;
+        width: 25%;
+        margin: 0 auto;
+        box-shadow: 0px 10px 10px -6px black;
+    }
+    #titulo01 h1{
+        padding: 1%;
+        text-align: center;
+        text-shadow: 2px 5px 6px black;
+        font-size:medium;
+    }
+    .formPro01 p{
+        padding-bottom:2%;
+        padding-top: 2%;
+        font-size: small;
+    }
+}

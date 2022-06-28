@@ -29,7 +29,6 @@ body{
     display: grid;
     grid-template-columns: 8fr 4fr;
     height: 72%;
-    border: solid 1px white;
 }
 #titulo{
     border: solid 2px white;
@@ -54,8 +53,9 @@ body{
 
 #tbPro .formPro{
     width: 80%;
+    height: 98%;
     border: solid 2px white;
-    margin: 1% auto;
+    margin: 0 auto;
     padding-left: 5%;
     padding-right: 5%;
 }
@@ -148,7 +148,6 @@ table th{
     display: grid;
     grid-template-columns: 4fr 4fr 4fr;
     gap: 10px;
-    border: solid 1px white;
 }
 
 .proyectosVigentes{
@@ -209,17 +208,17 @@ table th{
     }
     #tbPro{
         width: 98%;
-        margin: 1% auto;
+        margin: 0 auto;
         display: grid;
         grid-template-columns: 8fr 4fr;
         height: 67%;
-        border: solid 1px white;
+
     }
     #tbPro .formPro{
         width: 80%;
-        height: 96%;
+        height: 98%;
         border: solid 2px white;
-        margin: 1% auto;
+        margin: 0 auto;
         padding-left: 5%;
         padding-right: 5%;
     }
@@ -244,4 +243,37 @@ table th{
         opacity: 0.8;
     }
 
+    #inicio{
+        width: 98%;
+        height: 67%;
+        margin: 1% auto;
+        display: grid;
+        grid-template-columns: 4fr 4fr 4fr;
+        gap: 10px;
+    }
+    .proyectosVigentes{
+        width: 90%;
+        height: 90%;
+        margin: 15px auto;
+        border: solid 0.5px silver;
+        border-radius: 20px;
+        box-shadow: 0px 3px 2px 5px black;
+    
+    }
+    .recordatorios{
+        width: 90%;
+        height: 90%;
+        margin: 15px auto;
+        border: solid 0.5px silver;
+        border-radius: 20px;
+        box-shadow: 0px 3px 2px 5px black;
+    }
+    .bitacora{
+        width: 90%;
+        height: 90%;
+        margin: 15px auto;
+        border: solid 0.5px silver;
+        border-radius: 20px;
+        box-shadow: 0px 3px 2px 5px black;
+    }
 }
