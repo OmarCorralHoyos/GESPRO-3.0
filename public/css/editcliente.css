@@ -32,8 +32,8 @@ body{
 }
 #titulocli{
     border: solid 2px white;
-    width: 20%;
-    margin: 3% auto;
+    width: 25%;
+    margin: 1% auto;
     box-shadow: 0px 10px 10px -6px black;
 }
 #titulocli h1{

@@ -32,15 +32,15 @@ body{
 }
 #titulo01{
     border: solid 2px white;
-    width: 20%;
-    margin: 3% auto;
+    width: 25%;
+    margin: 1% auto;
     box-shadow: 0px 10px 10px -6px black;
 }
 #titulo01 h1{
     padding: 1%;
     text-align: center;
     text-shadow: 2px 5px 6px black;
-    
+    font-size: x-large;
 }
 #tb1{
     width: 98%;

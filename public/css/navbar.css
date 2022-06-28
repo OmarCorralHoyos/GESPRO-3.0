@@ -1,9 +1,11 @@
 /* Navegacion App */
 #nav-interfaz{
     width: 99%;
+    height: 18%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 10fr 1fr;
+    border: solid 1px white;
 }
 .version{
     opacity: .7;
@@ -83,4 +85,17 @@
     text-align: center;
     padding-top: 2%;
     text-shadow: 2px 5px 6px black;
+}
+
+@media screen and (max-width: 1000px) {
+    #nav-interfaz{
+        width: 99%;
+        height: auto;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 10fr 1fr;
+        border: solid 1px white;
+    }
+
+    
 }
