@@ -16,6 +16,18 @@ exports.savelog=(req,res)=>{
     })
 }
 
+exports.savebita=(req,res)=>{
+    const fechabita = req.body.fechabita
+    const notabita = req.body.notabita
+    conexion.query('INSERT INTO bitacora SET ?', {fechabita:fechabita,notabita:notabita}, (error, results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.redirect('/inicio')
+        }
+    })
+}
+
 exports.savealma=(req,res)=>{
     const nombreherra = req.body.nombreherra
     const estadoherra = req.body.estadoherra

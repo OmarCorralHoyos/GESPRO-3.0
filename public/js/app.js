@@ -15,6 +15,15 @@ function validar(){
     }
 }
 
+let tablaproye=document.getElementById('tbproyecto');
 
+function fechaInicial (tabla, numeroColumna) {
+    for (let i= 1, celda; i < tabla.rows.length; i++) {
+        celda = tabla.rows[i].cells[numeroColumna];
+        fechaini = new Date(celda.innerHTML).toLocaleDateString();
+        console.log(fechaini);
+    }
+}
+fechaInicial(tablaproye,3)
 
 

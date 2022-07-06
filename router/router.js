@@ -19,6 +19,15 @@ router.get('/users', (req, res)=>{
         }
     })
 })
+router.get('/inicio', (req, res)=>{
+    conexion.query('SELECT * FROM bitacora',(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('inicio' , {results:results});
+        }
+    })
+})
 
 router.get('/proyectos', (req, res)=>{
     conexion.query('SELECT * FROM gestionproyecto',(error,results)=>{
@@ -78,6 +87,7 @@ router.get('/reportes', (req, res)=>{
 
 const crud = require('../controllers/crud');
 router.post('/savelog',crud.savelog)
+router.post('/savebita',crud.savebita)
 router.post('/savealma',crud.savealma)
 router.post('/savecli',crud.savecli)
 router.post('/saveemp',crud.saveemp)
@@ -177,6 +187,17 @@ router.get('/deletelog/:idUsuario',(req,res)=>{
             throw error;
         }else{
             res.redirect('/users');
+        }
+    })
+});
+
+router.get('/deletebita/:idbita',(req,res)=>{
+    const idbita = req.params.idbita;
+    conexion.query('DELETE FROM bitacora WHERE idbita=?',[idbita],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.redirect('/inicio');
         }
     })
 });

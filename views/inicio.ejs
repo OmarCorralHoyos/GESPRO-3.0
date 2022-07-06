@@ -16,7 +16,44 @@
                 <h4>RECORDATORIOS</h4>
             </div>
             <div class="bitacora">
-                <h4>BITACORA</h4>
+                <div>
+                    <h4>BITACORA</h4>
+                </div>
+                
+                <div id="tbbita">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>FECHA</th>
+                                <th>NOTA</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% results.forEach((bitacora) => { %>
+                                <tr>
+                                    <td><%-bitacora.idbita%></td>
+                                    <td><%-bitacora.fechabita%></td>
+                                    <td><%-bitacora.notabita%></td>
+                                    <td>
+                                        <a href="/deletebita/<%=bitacora.idbita%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">X</a>
+                                    </td>
+                                </tr>                                 
+                            <% }) %>
+                        </tbody>
+                        
+                    </table>
+                </div>  
+                <div id="formbita">
+                    <form action="/savebita" method="post" >
+                        <textarea rows="4" id="notabita" name="notabita" maxlength="200" placeholder="Escribe tu nota aqui:" required></textarea>
+                        <br>
+                        <p>Fecha del mensaje:</p>
+                        <input type="date" id="fechabita" name="fechabita" min="2022-01-01" max="2050-12-31" required>
+                        <input type="submit" value="GUARDAR">
+                    </form>
+                </div>  
             </div> 
         </div>
         

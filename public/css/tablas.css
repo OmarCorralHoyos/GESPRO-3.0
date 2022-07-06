@@ -140,6 +140,56 @@ table th{
 
 /*  Tablas inicio */
 
+#tbbita{
+    width: 94%;
+    margin: 0 auto;
+    height: 65%;
+    overflow:auto;
+    border: solid 1px white;
+}
+ #formbita{
+    width: 94%;
+    margin: 1% auto;
+ }
+#formbita p{
+    text-align: center;
+    font-size: medium;
+    margin-bottom: 1%;
+} 
+
+#fechabita{
+    width: 90%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+}
+#notabita{
+    width: 90%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 5%;
+    opacity: 0.6;
+    border-radius: 5px;
+    border: solid 1px white;
+    resize: none;
+}
+
+#formbita  input[type=submit]{
+    width: 30%;
+    margin: 0% auto;
+    margin-left: 35%;
+    border-radius: 5px;
+    background-color: chartreuse;
+    border-color: black;
+    padding: 1% 1% 1% 1%;
+    border-style: double;
+    transition: all 0.3s ease;
+    color: black;
+    opacity: 1;
+}
+#formbita  input[type=submit]:hover{
+    transform: scale(0.9);
+    border-color: greenyellow;
+}
 
  #inicio{
     width: 98%;
