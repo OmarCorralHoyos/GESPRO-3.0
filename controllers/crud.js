@@ -1,19 +1,87 @@
 const conexion= require('../database/db');
+const bcryptjs = require('bcryptjs');
+const jwt = require('jsonwebtoken')
+const {promisify} = require('util')
 
-exports.savelog=(req,res)=>{
-    
-    const nombreCompleto = req.body.nombreCompleto
-    const nombreUsuario = req.body.nombreUsuario
-    const contraseñauser = req.body.contraseñauser
-    const rol = req.body.rol
 
-    conexion.query('INSERT INTO usuarios SET ?', {nombreCompleto:nombreCompleto, nombreUsuario:nombreUsuario,contraseñauser:contraseñauser,rol:rol}, (error, results)=>{
-        if(error){
-            console.log(error);
+exports.savelog= async (req,res)=>{
+    try{
+        const nombreCompleto = req.body.nombreCompleto
+        const nombreUsuario = req.body.nombreUsuario
+        const contraseñauser = req.body.contraseñauser
+        const rol = req.body.rol
+        let passhash = await bcryptjs.hash(contraseñauser, 8)
+            //console.log(passhash)
+        conexion.query('INSERT INTO usuarios SET ?', {nombreCompleto:nombreCompleto, nombreUsuario:nombreUsuario,contraseñauser:passhash,rol:rol}, (error, results)=>{
+            if(error){
+                console.log(error);
+            }else{
+                res.redirect('/users')
+            }
+        })
+    }catch(error) {
+        console.log(error)
+    }
+   
+}
+
+exports.log = async (req,res)=>{
+    try{
+        const userValidar = req.body.userValidar
+        const passValidar = req.body.passValidar
+
+        if(!userValidar || !passValidar){
+            res.render('login',{
+                alert:true,
+                alertTitle: "Advertencia",
+                alertMessage: "Ingrese un usuario y una contraseña",
+                alertIcon:'info',
+                showConfirmButton: true,
+                timer: false,
+                ruta: ''
+            })
         }else{
-            res.redirect('/users')
-        }
-    })
+            conexion.query('SELECT * FROM usuarios WHERE nombreUsuario = ?', [userValidar], async (error, results)=>{
+                if( results.length == 0 || !(await bcryptjs.compare(passValidar, results[0].contraseñauser)) ){
+                    console.log(bcryptjs)
+                    res.render('login', {
+                        alert: true,
+                        alertTitle: "Error",
+                        alertMessage: "Usuario y/o contraseña incorrectas",
+                        alertIcon:'error',
+                        showConfirmButton: true,
+                        timer: false,
+                        ruta: ''   
+                    })    
+                }else{
+                    const idUsuario = results[0].idUsuario
+                    const token = jwt.sign({idUsuario:idUsuario}, process.env.JWT_SECRETO)
+                   
+                    // const token = jwt.sign({id:id}, process.env.JWT_SECRETO, {
+                    //  expiresIn: process.env.JWT_TIEMPO_EXPIRA})
+                   console.log("TOKEN: "+token+" para el USUARIO : "+userValidar)
+                    const cookiesOptions = {
+                        expires: new Date(Date.now()+process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
+                        httpOnly: true
+                    }
+                    res.cookie('jwt', token, cookiesOptions)
+                    res.render('login', {
+                        alert: true,
+                        alertTitle: "Conexión exitosa",
+                        alertMessage: "¡USUARIO COMFIRMADO!",
+                        alertIcon:'success',
+                        showConfirmButton: false,
+                        timer: 800,
+                        ruta: 'inicio'
+                    })
+                }  
+            })
+        }  
+
+    }catch (error){
+        console.log(error)
+    }
+       
 }
 
 exports.savebita=(req,res)=>{

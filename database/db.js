@@ -1,7 +1,6 @@
 /* Conexion base de datos */ 
 
 const mysql = require("mysql");
-const { path } = require("../app");
 
 require('dotenv').config({path:'./.env'})
 
@@ -20,8 +19,6 @@ conexion.query('select 1 + 1', (err, rows) => {
     }
     console.log('¡Conectado a la db gespro del proyecto!');
 });
-
-
 
 module.exports=conexion
 

@@ -5,8 +5,9 @@ const router = express.Router();
 const conexion = require('../database/db');
 
 router.get('/', (req, res)=>{
-    res.render('login');
+    res.render('login',{alert:false});
 });
+
 
 /*  Monstrar Valores en las tablas*/
 
@@ -86,13 +87,17 @@ router.get('/reportes', (req, res)=>{
 /* INSERTAR VALORES EN LAS TABLAS */ 
 
 const crud = require('../controllers/crud');
+const app = require('../app');
 router.post('/savelog',crud.savelog)
+router.post('/log',crud.log)
 router.post('/savebita',crud.savebita)
 router.post('/savealma',crud.savealma)
 router.post('/savecli',crud.savecli)
 router.post('/saveemp',crud.saveemp)
 router.post('/saveprove',crud.saveprove)
 router.post('/saveproye',crud.saveproye)
+
+
 
 
 /* EDITAR VALORES DE LAS TABLAS */ 
