@@ -43,7 +43,7 @@ exports.log = async (req,res)=>{
         }else{
             conexion.query('SELECT * FROM usuarios WHERE nombreUsuario = ?', [userValidar], async (error, results)=>{
                 if( results.length == 0 || !(await bcryptjs.compare(passValidar, results[0].contraseñauser)) ){
-                    console.log(bcryptjs)
+                    //console.log(results)
                     res.render('login', {
                         alert: true,
                         alertTitle: "Error",
@@ -59,7 +59,7 @@ exports.log = async (req,res)=>{
                    
                     // const token = jwt.sign({id:id}, process.env.JWT_SECRETO, {
                     //  expiresIn: process.env.JWT_TIEMPO_EXPIRA})
-                   console.log("TOKEN: "+token+" para el USUARIO : "+userValidar)
+                   //console.log("TOKEN: "+token+" para el USUARIO : "+userValidar)
                     const cookiesOptions = {
                         expires: new Date(Date.now()+process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
                         httpOnly: true
@@ -71,7 +71,7 @@ exports.log = async (req,res)=>{
                         alertMessage: "¡USUARIO COMFIRMADO!",
                         alertIcon:'success',
                         showConfirmButton: false,
-                        timer: 800,
+                        timer: 1000,
                         ruta: 'inicio'
                     })
                 }  
@@ -82,6 +82,29 @@ exports.log = async (req,res)=>{
         console.log(error)
     }
        
+}
+
+exports.isAuthenticated = async (req, res, next)=>{
+    if (req.cookies.jwt) {
+        try {
+            const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+            conexion.query('SELECT * FROM users WHERE id = ?', [decodificada.idUsuario], (error, results)=>{
+                if(!results){return next()}
+                req.nombreUsuario = results[0]
+                return next()
+            })
+        } catch (error) {
+            console.log(error)
+            return next()
+        }
+    }else{
+        res.redirect('/')        
+    }
+}
+
+exports.logout = (req, res)=>{
+    res.clearCookie('jwt')   
+    return res.redirect('/')
 }
 
 exports.savebita=(req,res)=>{

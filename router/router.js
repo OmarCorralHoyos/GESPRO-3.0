@@ -1,6 +1,8 @@
 const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
+const crud = require('../controllers/crud');
+const app = require('../app');
 
 const conexion = require('../database/db');
 
@@ -11,7 +13,7 @@ router.get('/', (req, res)=>{
 
 /*  Monstrar Valores en las tablas*/
 
-router.get('/users', (req, res)=>{
+router.get('/users',crud.isAuthenticated, (req, res)=>{
     conexion.query('SELECT * FROM usuarios',(error,results)=>{
         if(error){
             throw error;
@@ -20,7 +22,7 @@ router.get('/users', (req, res)=>{
         }
     })
 })
-router.get('/inicio', (req, res)=>{
+router.get('/inicio',crud.isAuthenticated, (req, res)=>{
     conexion.query('SELECT * FROM bitacora',(error,results)=>{
         if(error){
             throw error;
@@ -30,7 +32,7 @@ router.get('/inicio', (req, res)=>{
     })
 })
 
-router.get('/proyectos', (req, res)=>{
+router.get('/proyectos',crud.isAuthenticated, (req, res)=>{
     conexion.query('SELECT * FROM gestionproyecto',(error,results)=>{
         if(error){
             throw error;
@@ -40,7 +42,7 @@ router.get('/proyectos', (req, res)=>{
     })
 })
 
-router.get('/proveedores', (req, res)=>{
+router.get('/proveedores',crud.isAuthenticated, (req, res)=>{
     conexion.query('SELECT * FROM proveedores',(error,results)=>{
         if(error){
             throw error;
@@ -49,7 +51,7 @@ router.get('/proveedores', (req, res)=>{
         }
     })
 })
-router.get('/clientes', (req, res)=>{
+router.get('/clientes',crud.isAuthenticated, (req, res)=>{
     conexion.query('SELECT * FROM clientes',(error,results)=>{
         if(error){
             throw error;
@@ -58,7 +60,7 @@ router.get('/clientes', (req, res)=>{
         }
     })
 })
-router.get('/empleados', (req, res)=>{
+router.get('/empleados',crud.isAuthenticated, (req, res)=>{
     conexion.query('SELECT * FROM empleados',(error,results)=>{
         if(error){
             throw error;
@@ -68,7 +70,7 @@ router.get('/empleados', (req, res)=>{
     })
 })
 
-router.get('/almacen', (req, res)=>{
+router.get('/almacen',crud.isAuthenticated, (req, res)=>{
     conexion.query('SELECT * FROM almacen',(error,results)=>{
         if(error){
             throw error;
@@ -77,19 +79,19 @@ router.get('/almacen', (req, res)=>{
         }
     })
 })
-router.get('/inicio', (req, res)=>{
+router.get('/inicio',crud.isAuthenticated, (req, res)=>{
     res.render('inicio');
 })
-router.get('/reportes', (req, res)=>{
+router.get('/reportes',crud.isAuthenticated, (req, res)=>{
     res.render('reportes');
 })
 
 /* INSERTAR VALORES EN LAS TABLAS */ 
 
-const crud = require('../controllers/crud');
-const app = require('../app');
+
 router.post('/savelog',crud.savelog)
 router.post('/log',crud.log)
+router.get('/logout',crud.logout)
 router.post('/savebita',crud.savebita)
 router.post('/savealma',crud.savealma)
 router.post('/savecli',crud.savecli)
