@@ -18,6 +18,7 @@
                         <th>ESTADO</th>
                         <th>TIPO DE HERRAMIENTA</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,9 +29,10 @@
                          <td><%-almacen.estado%></td>
                          <td><%-almacen.tipoherra%></td>
                          <td>
-                            <a href="/edital/<%=almacen.idherra%>" id="btnEdit">EDITAR</a>
-                            <a href="/deleteal/<%=almacen.idherra%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">X</a>
-                        
+                            <a href="/edital/<%=almacen.idherra%>" id="btnEdit">EDITAR</a>                       
+                        </td>
+                        <td>
+                            <a href="/deleteal/<%=almacen.idherra%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">BORRAR</a>
                         </td>
                     <% }) %>
                 </tbody>

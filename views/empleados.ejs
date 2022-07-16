@@ -22,6 +22,7 @@
                         <th>CARGO</th>
                         <th>SALARIO</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,7 +37,9 @@
                          <td><%- empleados.salarioempleado %></td>
                          <td>
                             <a href="/editemp/<%=empleados.idEmpleados %>" id="btnEdit">EDITAR</a>
-                            <a href="/deleteemp/<%=empleados.idEmpleados%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">X</a>
+                        </td>
+                        <td>
+                            <a href="/deleteemp/<%=empleados.idEmpleados%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">BORRAR</a>
                         </td>
                         </tr>
                     <% }) %>

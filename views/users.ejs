@@ -19,6 +19,7 @@
                         <th>CONTRASEÑA</th>
                         <th>ROL DEL USUARIO</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,9 +31,10 @@
                          <td><%-usuarios.contraseñauser%></td>
                          <td><%-usuarios.rol%></td>
                          <td>
-                            <a href="/editlog/<%=usuarios.idUsuario%>" id="btnEdit">EDITAR</a>
-                            <a href="/deletelog/<%=usuarios.idUsuario%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">X</a>
-                        
+                            <a href="/editlog/<%=usuarios.idUsuario%>" id="btnEdit">EDITAR</a>                        
+                        </td>
+                        <td>
+                            <a href="/deletelog/<%=usuarios.idUsuario%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">BORRAR</a>
                         </td>
                     <% }) %>
                 </tbody>

@@ -106,7 +106,20 @@ table th{
     border: solid 0.5px white;
     padding: 2px;
 }
-
+#btnVer{
+    border-radius: 5px;
+    background-color: gainsboro;
+    border-color: green;
+    padding: 1% 1% 1% 1%;
+    border-style: double;
+    transition: all 0.3s ease;
+    display:inline-block;
+    width: auto;
+}
+#btnVer:hover{
+    transform: scale(0.9);
+    border-color: yellow;
+}
 #btnEdit{
     border-radius: 5px;
     background-color: deepskyblue;

@@ -71,7 +71,7 @@ exports.log = async (req,res)=>{
                         alertMessage: "¡USUARIO COMFIRMADO!",
                         alertIcon:'success',
                         showConfirmButton: false,
-                        timer: 1000,
+                        timer: 1300,
                         ruta: 'inicio'
                     })
                 }  

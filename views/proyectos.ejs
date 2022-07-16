@@ -20,6 +20,8 @@
                         <th>FECHA DE TERMINACION</th>
                         <th>CLIENTE</th>
                         <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,8 +34,13 @@
                          <td class="formatfefin"><%- gestionproyecto.fechafinalproye %></td>
                          <td><%- gestionproyecto.clientes_idclientes%></td>
                          <td>
+                            <a href="" id="btnVer">VER</a>
+                         </td>
+                         <td>
                             <a href="/editproyec/<%= gestionproyecto.idproye %>" id="btnEdit">EDITAR</a>
-                            <a href="/deleteproye/<%=gestionproyecto.idproye%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">X</a>
+                        </td>
+                        <td>
+                            <a href="/deleteproye/<%=gestionproyecto.idproye%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">BORRAR</a>
                         </td>
                     <% }) %>
                 </tbody>

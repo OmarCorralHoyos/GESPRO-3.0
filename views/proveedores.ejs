@@ -19,6 +19,7 @@
                         <th>DIRECCION</th>
                         <th>CORREO</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,7 +32,9 @@
                          <td><%-proveedores.correoprove %></td>
                          <td>
                             <a href="/editproved/<%= proveedores.idProveedores %>" id="btnEdit">EDITAR</a>
-                            <a href="/deleteprove/<%=proveedores.idProveedores%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">X</a>
+                        </td>
+                        <td>
+                            <a href="/deleteprove/<%=proveedores.idProveedores%>" onclick="return confirm('¿Desea eliminar este registro?')" id="btnEli">BORRAR</a>
                         </td>
                         </tr>
                     <% }) %>

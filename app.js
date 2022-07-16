@@ -19,7 +19,6 @@ app.use(express(json));
 app.use(express.static(__dirname + '/public'));
 app.use('/', require('./router/router'));
 
-
 app.listen(puerto, ()=>{
     console.log('Aplicacion corriendo en el PORT:',puerto);
 });
